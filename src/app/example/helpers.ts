@@ -1,6 +1,6 @@
 import { ChildData } from "./child-data.type";
 
-export function findNode(id: string, currentNode: ChildData) {
+export function findNode(id: string, currentNode: ChildData): any {
   let i,
       currentChild,
       result;
@@ -11,8 +11,9 @@ export function findNode(id: string, currentNode: ChildData) {
 
       // Use a for loop instead of forEach to avoid nested functions
       // Otherwise "return" will not work properly
-      for (i = 0; i < currentNode?.children?.length; i += 1) {
-          currentChild = currentNode.children[i];
+      for (i = 0; i < currentNode?.children?.length!!; i += 1) {
+          // @ts-ignore
+        currentChild = currentNode.children[i];
 
           // Search in the current child
           result = findNode(id, currentChild);
@@ -33,11 +34,11 @@ export function updateNodeTree(data: ChildData[], id: string){
     if ((findNode(id, child))) {
       return {
         ...child,
-        children: child.children.map((subChild) => {
+        children: child.children!!.map((subChild) => {
           if ((findNode(id, subChild))) {
             return {
               ...subChild,
-              children: subChild.children.map((subsubChild) => {
+              children: subChild.children!!.map((subsubChild) => {
                 if ((findNode(id, subsubChild))) {
                   return {
                     ...subsubChild,

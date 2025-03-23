@@ -6,24 +6,37 @@ import { ChildData } from '../child-data.type';
   selector: 'app-third-level',
   imports: [CommonModule],
   standalone: true,
+  styles: `
+    :host {
+      display: flex;
+      margin: 8px;
+      text-align: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+      border: 1px solid #000;
+      border-radius: 10px;
+      background: #267373;
+    }
+
+    strong {
+      padding: 16px;
+    }
+
+  `,
   template: `
     <strong>{{ childData.label }}</strong>
     <button (click)='mark()'>mark</button>
-    <span>{{visualizeChangeDetectionRan()}}</span>
+    <span>{{ visualizeChangeDetectionRan() }}</span>
   `,
-  styleUrls: ['./third-level.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ThirdLevelComponent implements OnInit {
-  @Input() public childData: ChildData;
-
+  @Input() public childData!: ChildData;
 
   constructor(private elementRef: ElementRef, private zone: NgZone) {
   }
 
-
   ngOnInit(): void {
-
   }
 
   public mark() {

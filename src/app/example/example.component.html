@@ -1,0 +1,42 @@
+<!--<app-some></app-some>-->
+
+
+{{ visualizeChangeDetectionRan() }}
+<strong>App root</strong>
+<div class='children'>
+  @for (level of data; track level) {
+    <app-first-level
+      [childData]='level'
+    ></app-first-level>
+  }
+</div>
+
+
+
+<!--<div class='data-structure'>-->
+<!--  <h2>Update from outside (immutable)</h2>-->
+<!--  <ul>-->
+<!--    <li *ngFor='let l1 of data; trackBy: track'>-->
+<!--      <div class='row'>-->
+<!--        {{ l1.id }}-->
+<!--        <button (click)='update(l1.id)'>Update node: {{ l1.label }}</button>-->
+<!--      </div>-->
+<!--      <ul *ngIf='l1.children'>-->
+<!--        <li *ngFor='let l2 of l1.children; trackBy: track '>-->
+<!--          <div class='row'>-->
+<!--            {{ l2.id }}-->
+<!--            <button (click)='update(l2.id)'>Update node: {{ l2.label }}</button>-->
+<!--          </div>-->
+<!--          <ul>-->
+<!--            <li *ngFor='let l3 of l2.children; trackBy: track '>-->
+<!--              <div class='row'>-->
+<!--                {{ l3.id }}-->
+<!--                <button (click)='update(l3.id)'>Update node: {{ l3.label }}</button>-->
+<!--              </div>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</div>-->

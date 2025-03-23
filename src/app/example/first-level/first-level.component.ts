@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, Input, NgZone } from '@angular/core';
 import { SecondLevelComponent } from '../second-level/second-level.component';
-import { ChildData } from './child-data.type';
+import { ChildData } from '../child-data.type';
 
 @Component({
   selector: 'app-first-level',
@@ -17,9 +17,11 @@ import { ChildData } from './child-data.type';
       border: 1px solid #000;
       background: #459191;
     }
+
     strong {
       padding: 16px;
     }
+
     .children {
       display: flex;
     }
@@ -28,26 +30,25 @@ import { ChildData } from './child-data.type';
   `,
   template: `
     <strong>{{ childData.label }}</strong>
-    <span>{{visualizeChangeDetectionRan()}}</span>
+    <span>{{ visualizeChangeDetectionRan() }}</span>
 
-    <div class="children">
-<!--    <app-second-level-->
-<!--      *ngFor="let data of childData.children; trackBy: track"-->
-<!--      [childData]="data"-->
-<!--    ></app-second-level>-->
+    <div class='children'>
+      @for (data of childData.children; track data) {
+        <app-second-level
+          [childData]='data'
+        ></app-second-level>
+      }
     </div>
 
   `,
   standalone: true,
-  styleUrls: ['./first-level.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FirstLevelComponent {
-  @Input() public childData: ChildData;
+  @Input() public childData!: ChildData;
 
   constructor(
     private elementRef: ElementRef,
-    private zone: NgZone,
+    private zone: NgZone
   ) {}
 
   public visualizeChangeDetectionRan(): void {

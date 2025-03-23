@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+.detecting {
+  border: 1px dashed #267373 !important;
+  color: #fff!important;
+  background: #da3d3d !important;
+}
+
+button {
+  padding: 5px;
+  min-width: 60px;
+  margin: 4px 0;
+  border: none;
+  background-color: #e10303;
+  color: white;
+}
+
+.row {
+  background-color: #fafafa;
+  color: black;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 8px;
+}
+.row button {
+  margin-left: 8px;
+}
+.data-structure {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
