@@ -42,6 +42,7 @@ import { ChildData } from '../child-data.type';
 
   `,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FirstLevelComponent {
   @Input() public childData!: ChildData;

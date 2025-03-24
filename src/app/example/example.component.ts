@@ -1,5 +1,5 @@
 import { ChildData } from './child-data.type';
-import { Component, ElementRef, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, NgZone } from '@angular/core';
 import { updateNodeTree } from './helpers';
 import { FirstLevelComponent } from './first-level/first-level.component';
 
@@ -27,7 +27,8 @@ import { FirstLevelComponent } from './first-level/first-level.component';
     pre {
       width: 100%;
     }
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExampleComponent {
 

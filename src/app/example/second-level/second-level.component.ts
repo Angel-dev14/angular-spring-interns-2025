@@ -38,6 +38,7 @@ import { ChildData } from '../child-data.type';
     </div>
   `,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SecondLevelComponent implements OnInit {
 
