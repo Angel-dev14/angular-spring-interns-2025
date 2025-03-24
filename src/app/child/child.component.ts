@@ -11,6 +11,4 @@ export class ChildComponent {
 
   @Input() name!: string;
   @Input() person!: {name: string};
-
-
 }
