@@ -1,0 +1,11 @@
+@for (user of users$ | async; track user) {
+  <div>
+    <p>
+      user: {{ user.username }}
+    </p>
+    <button (click)='navigate(user)'>details</button>
+  </div>
+} @empty {
+   User list is empty
+}
+
